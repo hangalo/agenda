@@ -7,23 +7,42 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-         <h2> Exemplo -selectOneRadio</h2>
+        
+        
         <h:form>
-            <h:selectOneRadio layout="PageDirection">
+             <h:outputLabel value="Cor:"/>
+             <h:selectOneRadio value="#{corCDIBean.cor.nomeCor}" layout="pageDirection">
+                 
+                 <f:selectItem itemLabel="Vermelho" itemValue="vermelho"/>
                 <f:selectItem itemLabel="Azul" itemValue="azul"/>
-                <f:selectItem itemLabel="Vermelho" itemValue="vermelho"/>
-                <f:selectItem itemLabel="Verde" itemValue="verde"/>
+                <f:selectItem itemLabel="Castanho" itemValue="castanho"/>
+                <f:selectItem itemLabel="Amarelo" itemValue="amarelo"/>
             </h:selectOneRadio>
+             <h:commandButton action="#{corCDIBean.mostraCor}" value="Enviar">
+                 <f:ajax execute="@form" render="@form"/>             
+             </h:commandButton>
+             <hr/>
+             <h:outputText id="corEscolhida" value="#{corCDIBean.cor.nomeCor}"/>
         </h:form>
-        <h2> Exemplo -selectOneMenu</h2>
-        <hr/>
+        
+        
+        
          <h:form>
-            <h:selectOneMenu>
-                <f:selectItem itemLabel="Azul" itemValue="azul"/>
-                <f:selectItem itemLabel="Vermelho" itemValue="vermelho"/>
-                <f:selectItem itemLabel="Verde" itemValue="verde"/>
+             <h:outputLabel value="Municipio:"/>
+             <h:selectOneMenu value="#{recadoCDIBean.recado.municipio}">
+                 <f:selectItem itemLabel="Seleccione um Municipio" noSelectionOption="true"/>
+                 <f:selectItem itemLabel="Belas" itemValue="belas"/>
+                <f:selectItem itemLabel="Talatona" itemValue="talatona"/>
+                <f:selectItem itemLabel="Cazenga" itemValue="cazenga"/>
+                <f:selectItem itemLabel="Luanda" itemValue="luanda"/>
             </h:selectOneMenu>
+             <h:commandButton action="#{recadoCDIBean.mostraMunicipio}" value="Enviar">
+                 <f:ajax execute="@form" render="@form"/>             
+             </h:commandButton>
+             <hr/>
+             <h:outputText id="municipioEscolhido" value="#{recadoCDIBean.recado.municipio}"/>
         </h:form>
+        
     </h:body>
 </html>
 
